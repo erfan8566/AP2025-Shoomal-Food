@@ -84,6 +84,7 @@ public class PreferencesManager {
                         .build();
 
                 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+                client.close();
 
                 if (response.statusCode() == 200) {
                     ObjectMapper objectMapper = new ObjectMapper();

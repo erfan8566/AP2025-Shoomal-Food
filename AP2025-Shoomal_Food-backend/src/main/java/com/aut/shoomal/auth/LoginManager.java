@@ -67,4 +67,18 @@ public class LoginManager
             throw new ServiceUnavailableException("500 Internal Server Error: Error during phone number authentication. " + e.getMessage());
         }
     }
+
+    public User ConfirmToChangePassword(String name, String phone)
+    {
+        User user;
+        try {
+            user = userManager.getUserByPhoneNumber(phone);
+        } catch (NotFoundException e) {
+            return null;
+        }
+
+        if (!user.getName().equals(name))
+            return null;
+        return user;
+    }
 }
