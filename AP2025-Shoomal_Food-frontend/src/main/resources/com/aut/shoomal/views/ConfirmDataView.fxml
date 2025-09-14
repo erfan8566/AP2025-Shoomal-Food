@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@/com/aut/shoomal/styles/MainView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aut.shoomal.controllers.ConfirmDataController">
+    <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <Label styleClass="header-label" text="برای تغییر رمز ابتدا مشخصات خود را وارد نمایید" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+
+        <HBox alignment="CENTER" spacing="10.0">
+            <Label text="نام کاربری" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
+            <TextField fx:id="nameField" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10.0">
+            <Label text="شماره تلفن" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
+            <TextField fx:id="phoneField" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10.0">
+            <Button fx:id="confirmButton" onAction="#handleSaveChanges" styleClass="primary-button" text="ثبت" />
+            <Button fx:id="backButton" onAction="#handleBack" styleClass="logout-button" text="بازگشت" />
+        </HBox>
+
+    </VBox>
+</AnchorPane>

@@ -3,8 +3,10 @@ package com.aut.shoomal.controllers;
 import com.aut.shoomal.exceptions.FrontendServiceException;
 import com.aut.shoomal.service.AuthService;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -29,6 +31,7 @@ public class SignInController extends AbstractBaseController {
     @FXML private TextField passwordField;
     @FXML private Button enterButton;
     @FXML private Hyperlink signUpLink;
+    @FXML private Hyperlink changePasswordLink;
 
     private AuthService authService;
 
@@ -122,5 +125,16 @@ public class SignInController extends AbstractBaseController {
             System.err.println("Failed to load SignUpView.fxml: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void handleChangePasswordLink(ActionEvent actionEvent)
+    {
+        navigateTo(
+                (Node) actionEvent.getSource(),
+                "/com/aut/shoomal/views/ConfirmDataView.fxml",
+                "/com/aut/shoomal/styles/MainView.css",
+                TransitionType.SLIDE_LEFT
+        );
     }
 }

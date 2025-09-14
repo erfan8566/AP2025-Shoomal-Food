@@ -22,9 +22,9 @@ import java.util.regex.Pattern;
 
 public class LoginHandler extends AbstractHttpHandler
 {
-    private final Pattern LOGIN_PATTERN = Pattern.compile("/auth/login/?");
-    private final Pattern PASSWORD_PATTERN = Pattern.compile("/auth/forgot/change/?");
-    private final Pattern CONFIRM_PATTERN = Pattern.compile("/auth/forgot/confirm/?");
+    private static final Pattern LOGIN_PATTERN = Pattern.compile("/auth/login/?");
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("/auth/forgot/change/?");
+    private static final Pattern CONFIRM_PATTERN = Pattern.compile("/auth/forgot/confirm/?");
 
     private final LoginManager loginManager;
     private final UserManager userManager;
