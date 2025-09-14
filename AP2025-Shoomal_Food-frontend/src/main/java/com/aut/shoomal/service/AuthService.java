@@ -1,5 +1,7 @@
 package com.aut.shoomal.service;
 
+import com.aut.shoomal.dto.request.ChangePasswordRequest;
+import com.aut.shoomal.dto.request.ConfirmDataRequest;
 import com.aut.shoomal.dto.request.UserLoginRequest;
 import com.aut.shoomal.dto.request.UserRegisterRequest;
 import com.aut.shoomal.dto.response.ApiResponse;
@@ -34,6 +36,32 @@ public class AuthService extends AbstractService
         } catch (Exception e) {
             System.err.println("Error creating login request: " + e.getMessage());
             throw new RuntimeException("Error creating login request: " + e.getMessage(), e);
+        }
+    }
+
+    public CompletableFuture<Long> confirmData(ConfirmDataRequest request)
+    {
+        try {
+            HttpRequest httpRequest = createRequestBuilder("auth/forgot/confirm")
+                    .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(request)))
+                    .build();
+            return sendRequest(httpRequest, Long.class);
+        } catch (Exception e) {
+            System.err.println("Error creating confirm request: " + e.getMessage());
+            throw new RuntimeException("Error creating confirm request: " + e.getMessage(), e);
+        }
+    }
+
+    public CompletableFuture<ApiResponse> changePassword(ChangePasswordRequest request)
+    {
+        try {
+            HttpRequest httpRequest = createRequestBuilder("auth/forgot/change")
+                    .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(request)))
+                    .build();
+            return sendRequest(httpRequest, ApiResponse.class);
+        } catch (Exception e) {
+            System.err.println("Error creating change password request: " + e.getMessage());
+            throw new RuntimeException("Error creating change password request: " + e.getMessage(), e);
         }
     }
 

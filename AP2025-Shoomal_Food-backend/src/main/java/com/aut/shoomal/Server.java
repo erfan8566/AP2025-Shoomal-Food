@@ -72,6 +72,7 @@ public class Server
         AdminCouponHandler adminCouponHandler = new AdminCouponHandler(userManager, blacklistedTokenDao, couponManager);
         CourierHandler courierHandler = new CourierHandler(userManager,orderManager,blacklistedTokenDao, restaurantManager);
         UserOrderHandler userOrderHandler = new UserOrderHandler(userManager, blacklistedTokenDao);
+        LoginHandler loginHandler = new LoginHandler(loginManager, userManager);
 
         try {
             //signupManager.ensureAdminUserExists();
@@ -83,7 +84,9 @@ public class Server
             System.out.println("Available CPU cores: " + numberOfCores);
 
             finalServer.createContext("/auth/register", new RegisterHandler(signupManager));
-            finalServer.createContext("/auth/login", new LoginHandler(loginManager));
+            finalServer.createContext("/auth/login", loginHandler);
+            finalServer.createContext("/auth/forgot/confirm", loginHandler);
+            finalServer.createContext("/auth/forgot/change", loginHandler);
             finalServer.createContext("/auth/profile", new ProfileHandler(userManager, blacklistedTokenDao));
             finalServer.createContext("/auth/logout", new LogoutHandler(logoutManager));
 

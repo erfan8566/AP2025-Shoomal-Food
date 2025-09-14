@@ -41,7 +41,7 @@
          </Label>
       </top>
       <center>
-         <GridPane prefHeight="134.0" prefWidth="574.0" scaleY="0.95" translateY="30.0" vgap="50.0" BorderPane.alignment="CENTER">
+         <GridPane prefHeight="134.0" prefWidth="574.0" scaleY="0.95" translateY="30.0" vgap="40.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="286.40001220703125" />
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="287.99998779296874" />
@@ -134,7 +134,22 @@
                      </Hyperlink>
                   </graphic>
                </Label>
-               <Button fx:id="enterButton" mnemonicParsing="false" onAction="#handleEnterButton" prefHeight="0.0" prefWidth="132.0" styleClass="my-button" text="ورود" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <Label stylesheets="@../styles/SignInUpStyles.css" text="رمز خود را فراموش کرده ای؟" textFill="#f50000" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                  <font>
+                     <Font name="Vazirmatn Regular" size="18.0" />
+                  </font>
+                  <GridPane.margin>
+                     <Insets top="50.0" />
+                  </GridPane.margin>
+                  <graphic>
+                     <Hyperlink fx:id="changePasswordLink" onAction="#handleChangePasswordLink" text="تغییر رمز">
+                        <font>
+                           <Font name="Vazirmatn Regular" size="18.0" />
+                        </font>
+                     </Hyperlink>
+                  </graphic>
+               </Label>
+               <Button fx:id="enterButton" mnemonicParsing="false" onAction="#handleEnterButton" prefHeight="0.0" prefWidth="132.0" styleClass="my-button" text="ورود" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                   <font>
                      <Font name="Dubai Regular" size="14.0" />
                   </font>
@@ -142,7 +157,7 @@
                      <Insets />
                   </GridPane.margin>
                </Button>
-               <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                   <image>
                      <Image url="@../images/ShoomalFoodMahi-removebg.png" />
                   </image>
